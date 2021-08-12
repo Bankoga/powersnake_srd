@@ -1,6 +1,6 @@
 # OSARE System
 
-> TL;DR: ?
+> TL;DR: Rather incoherent at the moment, because it's a disparate confusion of multiple variants of the same thing that is in the process of being refactored
 
 MEASUREMENT VS EVALUATION!!!!
 
@@ -226,7 +226,40 @@ An on stage debate that lasts an hour, for instance, may only require a d6 water
 
 ### ME2 DiBSARC
 
+> TL;DR: Just use the corresponding table over at [TODO: PUT TABLE HERE]()
+
 There are two cases for handling ME2 score comparisons:
 
 1. When all participants in a score comparison are currently assessing at the baseline, or same, score
 1. When one or more participants in a score comparison need to first assess at different score from the baseline, or the others
+
+The modified powers of 2 in base 10 scale can be defined as follows:
+
+```py
+
+def the_value_of_the(score):
+  return pow(2,score)
+
+```
+
+In the case of NULL, the first increment is more expensive than the rest, comes with some baseline requirements, and leads to the base score associated with the property being measured, most often ES 0.
+
+Our modified power of 2 values in base 10 scale can be defined as follows:
+
+```py
+
+def odd_or_even(n):
+  numType = "even" if num % 2 == 0 else "odd"
+  return numType
+
+def the_value_of_the(score):
+  magnitude = floor(score/2)
+  base_value = pow(2,magnitude)
+  if odd_or_even(score) is "even":
+    return base_value
+  elif odd_or_even(score) is "odd":
+    return base_value + pow(2,score)/2
+  else:
+    print("the finite score provided was apparently not a number")
+
+```
